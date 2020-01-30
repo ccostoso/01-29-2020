@@ -60,6 +60,17 @@ app.get("/api/waiting-list", function(req, res) {
     return res.json(waitingList);
 });
 
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "index.html"));
+  });
+
+  app.get("/api/current-tables", function(req, res) {
+    res.sendFile(path.join(__dirname, "view.html"));
+  });
+  
+  app.get("/api/reserve", function(req, res) {
+    res.sendFile(path.join(__dirname, "reservation.html"));
+  });
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
