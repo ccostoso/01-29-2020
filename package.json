@@ -1,0 +1,29 @@
+{
+  "name": "hot-restaurant",
+  "version": "1.0.0",
+  "description": "A Hot Restuarant!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccostoso/01-29-2020.git"
+  },
+  "keywords": [
+    "hot",
+    "restaurant",
+    "server",
+    "express"
+  ],
+  "author": "Carlos Costoso, Swarupa Popuri, Kristen Cheung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccostoso/01-29-2020/issues"
+  },
+  "homepage": "https://github.com/ccostoso/01-29-2020#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
