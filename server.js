@@ -22,6 +22,33 @@ var waitingList = [
 
 ];
 
+function pushToReservations(customer) {
+    currentTables.push(customer);
+
+}
+
+function pushToWaitingList(customer){
+    waitingList.push(customer);
+}
+
+function checkReservations(object) {
+    if (currentTables.length < 5){
+        //call push to waiting list
+        pushToReservations(object);
+    }
+    else {
+        pushToWaitingList(object);
+    }
+}
+
+
+
+  app.post("/api/reserve", function(req, res) {
+    var newReservation = req.body;
+    checkReservations(newReservation);
+    console.log(newReservation);
+    res.json(newReservation);
+  });
 // Get requests
 // Displays currently available tables
 app.get("/api/current-tables", function(req, res) {
@@ -38,3 +65,4 @@ app.get("/api/waiting-list", function(req, res) {
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 });
+
