@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/ccostoso/01-29-2020#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "path": "^0.12.7"
   }
 }
