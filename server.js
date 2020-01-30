@@ -22,6 +22,7 @@ var waitingList = [
 
 ];
 
+// Functions to push incoming POST requests to arrays
 function pushToReservations(customer) {
     currentTables.push(customer);
 
@@ -41,15 +42,15 @@ function checkReservations(object) {
     }
 }
 
-
-
-  app.post("/api/reserve", function(req, res) {
+// POST requests
+app.post("/api/reserve", function(req, res) {
     var newReservation = req.body;
     checkReservations(newReservation);
     console.log(newReservation);
     res.json(newReservation);
-  });
-// Get requests
+});
+
+// GET requests
 // Displays currently available tables
 app.get("/api/current-tables", function(req, res) {
     return res.json(currentTables);
@@ -65,4 +66,3 @@ app.get("/api/waiting-list", function(req, res) {
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 });
-
