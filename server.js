@@ -2,6 +2,8 @@
 var express = require('express');
 var path = require('path');
 
+
+
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -46,12 +48,23 @@ function checkReservations(object) {
 app.post("/api/reserve", function(req, res) {
     var newReservation = req.body;
     checkReservations(newReservation);
-    console.log(newReservation);
     res.json(newReservation);
 });
 
 // GET requests
 // Displays currently available tables
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "index.html"));
+})
+
+app.get("/view-tables", function(req, res) {
+    res.sendFile(path.join(__dirname, "view.html"));
+})
+
+app.get("/make-reservation", function(req, res) {
+    res.sendFile(path.join(__dirname, "make-reservation.html"));
+});
+
 app.get("/api/current-tables", function(req, res) {
     return res.json(currentTables);
 });
@@ -60,6 +73,10 @@ app.get("/api/current-tables", function(req, res) {
 app.get("/api/waiting-list", function(req, res) {
     return res.json(waitingList);
 });
+
+app.get("/js", function(req, res) {
+    return res.sendFile(path.join(__dirname, "assets/post.js"))
+})
 
 // Starts the server to begin listening
 // =============================================================
